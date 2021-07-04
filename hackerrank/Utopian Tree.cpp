@@ -7,7 +7,12 @@ int main(){
 	while(t--){
 		long long n;
 		cin>>n;
-		if(n%2==0) cout<<(long long)pow(2,((n+2)/2))-1<<endl;
-		else cout<<(long long)pow(2,((n+3)/2))-2<<endl;
+		long long sum=1;
+		
+		for(int i=1;i<=n;i++){
+			if(i%2==0) sum++;
+			else sum*=2;
+		}
+		cout<<sum<<endl;
 	}
 }
