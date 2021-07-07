@@ -17,22 +17,30 @@ void Insert(int x){
 		ptr=head;
 	}
 	else{
-		while(head->next!=NULL){
-			head=head->next;
+		while(ptr->next!=NULL){
+			ptr=ptr->next;
 		}
-		head->next=temp;
-		
+		ptr->next=temp;	
 	}
 }
 
 void Print(){
-	Node*temp=ptr;
+	Node*temp=head;
 	cout<<"Day la: ";
 	while(temp!=NULL){
 		cout<<temp->data<<" ";
 		temp=temp->next;
 	}
 	cout<<endl;
+}
+
+void reversePrint(Node* head) {	
+    if(head==NULL) return;
+    else{
+        reversePrint(head->next);
+        cout<<head->data<<endl;
+    }
+
 }
 
 int main(){
@@ -44,6 +52,6 @@ int main(){
 		int y;
 		cin>>y;
 		Insert(y);
-		Print();
 	}
+	reversePrint(head);
 }
