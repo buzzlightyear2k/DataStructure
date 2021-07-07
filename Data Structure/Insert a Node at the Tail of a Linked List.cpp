@@ -38,10 +38,24 @@ void reversePrint(Node* head) {
     if(head==NULL) return;
     else{
         reversePrint(head->next);
-        cout<<head->data<<endl;
+        cout<<head->data<<" ";
     }
 
 }
+
+void Reverse(){
+	Node *curr,*prev,*next;
+	curr=head;
+	prev=NULL;
+	while(curr!=NULL){
+		next=curr->next;
+		curr->next=prev;
+		prev=curr;
+		curr=next;
+	}
+	head=prev;
+}
+
 
 int main(){
 	head=NULL;
@@ -53,5 +67,6 @@ int main(){
 		cin>>y;
 		Insert(y);
 	}
-	reversePrint(head);
+	Reverse();
+	Print();
 }
