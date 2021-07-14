@@ -69,19 +69,19 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  *
  */
 SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
-SinglyLinkedListNode*r;
+
 if(head1==NULL) return head2;
 if(head2==NULL) return head1;
 
 if(head1->data<head2->data){
-    r=head1;
-    r->next=mergeLists(head1->next,head2);
+    head1->next=mergeLists(head1->next,head2);
+    return head1;
 }
-else{
-    r=head2;
-    r->next=mergeLists(head1, head2->next);
+else{  
+    head2->next=mergeLists(head1, head2->next);
+    return head2;
 }
-return r;
+
 }
 
 int main()
